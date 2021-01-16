@@ -23,7 +23,7 @@ func _physics_process(_delta: float) -> void:
 		global_pos,
 		target_global_position,
 		max_speed
-	), 2, 0)
+	), 1, 0)
 	
 	direction = _velocity3.normalized()
 	$Pivot.look_at(translation + direction, Vector3.UP)
