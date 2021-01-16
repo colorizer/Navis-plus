@@ -7,6 +7,7 @@ export var camera_rotation_speed = 250
 
 var move_direction = Vector3()
 var vel = Vector3()
+var mouse_track = Path.new()
 
 onready var camera = $CameraRig/Camera
 onready var camera_rig = $CameraRig
@@ -28,7 +29,9 @@ func _physics_process(delta):
 	camera_follows_player()
 	rotate_camera(delta)
 	
-	run(delta, look_at_cursor())
+	mousetrack(look_at_cursor())
+	run(delta)
+#	print(mouse_track)
 	
 	vel *= friction
 	vel.y -= gravity*delta
@@ -66,9 +69,8 @@ func look_at_cursor() -> Vector3:
 	return cursor_pos
 
 
-func run(delta,cursor_pos:Vector3):
+func run(delta):
 	move_direction = Vector3()
-	var cursor_pos_normal = cursor_pos.normalized()
 	var camera_basis = camera.get_global_transform().basis
 	if Input.is_action_pressed("up"):
 		move_direction -= camera_basis.z
@@ -78,9 +80,16 @@ func run(delta,cursor_pos:Vector3):
 		move_direction -= camera_basis.x
 	elif Input.is_action_pressed("right"):
 		move_direction += camera_basis.x
-	if Input.is_action_pressed("go_here"):
-		move_direction += cursor_pos_normal
 	move_direction.y = 0
 	move_direction = move_direction.normalized()
 	
 	vel += move_direction*speed*delta
+
+
+func mousetrack(cursor_pos: Vector3):
+	if Input.is_action_pressed("go_here"):
+		print(cursor_pos)
+		mouse_track.curve.add_point(cursor_pos)
+		print(mouse_track.curve.get_point_count())
+	else:
+		pass
