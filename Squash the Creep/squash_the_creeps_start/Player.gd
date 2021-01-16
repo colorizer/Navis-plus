@@ -1,3 +1,9 @@
+#extends KinematicBody
+#var speed = 10
+#func _process(delta):
+#	transform.origin = transform.origin.move_toward(Vector3(20,0,10), speed * delta)
+#above code work but boat deform:)
+
 extends KinematicBody
 var pointlist = [[50,0,10], [5,0,30] ,[20,0,0]]
 var speed = 20
