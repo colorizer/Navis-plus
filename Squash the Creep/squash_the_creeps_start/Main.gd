@@ -21,12 +21,12 @@ func _physics_process(delta):
 
 func mouse_path():
 	var ray_length = 1000
-	var dropPlane = Plane(Vector3.UP, 2.0)
+	var dropPlane = Plane(Vector3.UP, 1.0)
 	var mouse_pos = get_viewport().get_mouse_position()
 	var from = camera.project_ray_origin(mouse_pos)
 	var to = from + camera.project_ray_normal(mouse_pos) * ray_length
 	var cursor_pos = dropPlane.intersects_ray(from,to)
-#	cursor_pos.y = 1.0
+	cursor_pos.y = 1.0
 #	if Input.is_action_just_pressed("Click"):
 #		mousepath.global_transform.origin = cursor_pos
 	if Input.is_action_pressed("Click"):
