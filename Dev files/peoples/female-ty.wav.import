@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/female-ty.wav-adf7d978c2cd9615c899e5477eb00530.sample"
+
+[deps]
+
+source_file="res://peoples/female-ty.wav"
+dest_files=[ "res://.import/female-ty.wav-adf7d978c2cd9615c899e5477eb00530.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
