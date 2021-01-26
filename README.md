@@ -1,7 +1,3 @@
----
-typora-root-url: ./
----
-
 # Navis+
 
 ![inline_logo](/Videos/inline_logo.png)
