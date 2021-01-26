@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://otherresource/oceansound.ogg" type="AudioStream" id=1]
 [ext_resource path="res://realistic_water_shader/art/rock/Rock.material" type="Material" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://realistic_water_shader/art/ground/Ground.material" type="Material" id=4]
 [ext_resource path="res://realistic_water_shader/art/rock/Rock.obj" type="ArrayMesh" id=5]
 [ext_resource path="res://realistic_water_shader/core/mouse.gd" type="Script" id=6]
+[ext_resource path="res://assets/FuelBar/FuelDisplay.tscn" type="PackedScene" id=7]
 [ext_resource path="res://realistic_water_shader/core/Player Boat.tscn" type="PackedScene" id=8]
 [ext_resource path="res://realistic_water_shader/art/boat/Boat.material" type="Material" id=10]
 [ext_resource path="res://realistic_water_shader/art/water/Water.material" type="Material" id=11]
@@ -310,6 +311,8 @@ anims/move = SubResource( 13 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
 autoplay = true
+
+[node name="FuelDisplay" parent="." instance=ExtResource( 7 )]
 [connection signal="body_entered" from="people/people1" to="people/people1" method="_on_people1_body_entered"]
 [connection signal="body_entered" from="people/people2" to="people/people2" method="_on_people2_body_entered"]
 [connection signal="body_entered" from="Wind Zones/Downwind" to="." method="_on_Downwind_body_entered"]
