@@ -9,16 +9,17 @@ var bar_yellow = preload("res://assets/FuelBar/barHorizontal_yellow.png")
 onready var timer = $fuel_time
 onready var bar = $FuelBar2D
 onready var level = get_parent()
+onready var mousepath = get_parent().get_node("Mouse_path")
 
 func _ready():
 	print("Parent level: ", level.get("max_time"))
 	if level and level.get("max_time"):
-		bar.max_value = level.max_time
+		bar.max_value = level.get("max_time")
 		bar.show()
 		print(bar.max_value, level.max_time)
 		timer.set_wait_time(bar.max_value)
-		level.connect("boat_moves", self, "handle_boat_moves")
-		level.connect("boat_stops", self, "handle_boat_stops")
+		mousepath.connect("boat_moves", self, "handle_boat_moves")
+		mousepath.connect("boat_stops", self, "handle_boat_stops")
 
 func _physics_process(_delta):
 	print("Timer stopped: ", timer.is_stopped())

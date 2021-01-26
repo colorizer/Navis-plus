@@ -1,10 +1,11 @@
 extends Spatial
 
-onready var camera = $CameraPivot/Camera
-onready var cursor= $Cursor
-onready var follower = $Mouse_path/Mouse_follow/Boat
-onready var mousepath = $Mouse_path
-onready var mousefollow = $Mouse_path/Mouse_follow
+onready var level = get_parent()
+onready var camera = level.get_node("CameraPivot/Camera")
+onready var cursor= level.get_node("Cursor")
+onready var follower = level.get_node("Mouse_path/Mouse_follow/Boat")
+onready var mousepath = level.get_node("Mouse_path")
+onready var mousefollow = level.get_node("Mouse_path/Mouse_follow")
 
 signal boat_moves
 signal boat_stops
@@ -12,7 +13,6 @@ signal boat_stops
 var BOAT_SPEED = 15.0
 var WIND_SPEED = 10.0
 var SPEED = 15.0
-var max_time = 20.0
 
 var touch = InputEventScreenTouch.new()
 # Called when the node enters the scene tree for the first time.
@@ -25,8 +25,6 @@ func _physics_process(delta):
 	mouse_path()
 	if !(Input.is_action_pressed("Click") or touch.is_pressed()):
 		followmouse(delta)
-
-
 
 func mouse_path():
 	var ray_length = 1000
