@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://otherresource/oceansound.ogg" type="AudioStream" id=1]
 [ext_resource path="res://realistic_water_shader/art/rock/Rock.material" type="Material" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://otherresource/191,191,191.material" type="Material" id=13]
 [ext_resource path="res://peoples/people1.tscn" type="PackedScene" id=14]
 [ext_resource path="res://peoples/people2.tscn" type="PackedScene" id=15]
+[ext_resource path="res://level/Level2.gd" type="Script" id=16]
 
 [sub_resource type="PlaneMesh" id=1]
 material = ExtResource( 4 )
@@ -139,7 +140,7 @@ tracks/1/keys = {
 }
 
 [node name="Level2" type="Spatial"]
-script = ExtResource( 6 )
+script = ExtResource( 16 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 3 )
@@ -159,7 +160,6 @@ material/0 = null
 
 [node name="Rocks" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 58.3274, 0, -10.7967 )
-visible = false
 
 [node name="Rock1" type="MeshInstance" parent="Rocks"]
 transform = Transform( -8.45299, 0, -5.58266, 2.97955, 3.42473, -4.51149, 1.88735, -5.40659, -2.85774, 7.50167, -5.0984, -10.4137 )
@@ -223,6 +223,7 @@ anims/Idle = SubResource( 3 )
 
 [node name="Mouse_path" type="Path" parent="."]
 curve = SubResource( 4 )
+script = ExtResource( 6 )
 
 [node name="Mouse_follow" type="PathFollow" parent="Mouse_path"]
 

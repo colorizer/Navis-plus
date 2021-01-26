@@ -12,4 +12,5 @@ func _ready():
 
 func _on_people_peopleCollected():
 	count = count + 1
+	Global.people = count
 	_ready()

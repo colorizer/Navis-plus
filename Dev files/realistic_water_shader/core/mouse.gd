@@ -22,12 +22,12 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 func _physics_process(delta):
+	if Input.is_action_pressed("Click"):
+		touch.set_pressed(true)
 	mouse_path()
 	if !Input.is_action_pressed("Click"):
 		touch.set_pressed(false)
 		followmouse(delta)
-	else:
-		touch.set_pressed(true)
 
 func mouse_path():
 	var ray_length = 1000

@@ -25,6 +25,7 @@ func _physics_process(_delta):
 	print("Timer stopped: ", timer.is_stopped())
 	print("time left: ", timer.get_time_left())
 	update_bar(timer.time_left)
+	Global.timeleft = timer.time_left
 
 func handle_boat_moves():
 	if timer.is_stopped() and Input.is_action_just_released("Click"):
