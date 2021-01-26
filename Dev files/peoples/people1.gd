@@ -1,5 +1,6 @@
 extends Area
 
+signal peopleCollected
 
 func _ready():
 	pass
@@ -12,5 +13,5 @@ func _on_people1_body_entered(body):
 		$Timer.start()
 	
 func _on_Timer_timeout():
-	
+	emit_signal("peopleCollected")
 	queue_free()

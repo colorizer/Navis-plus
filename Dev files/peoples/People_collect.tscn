@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://otherresource/fonts/Redkost Comic.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://peoples/People_collect.gd" type="Script" id=2]
+[ext_resource path="res://peoples/swimmer.png" type="Texture" id=3]
+[ext_resource path="res://otherresource/fonts/ThatNogoFontCasual.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 36
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 48
+outline_size = 2
+outline_color = Color( 0.87451, 0.505882, 0.419608, 1 )
+font_data = ExtResource( 4 )
+
+[node name="People_collect" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -2.92249
+margin_top = 1.43198
+margin_right = -2.92249
+margin_bottom = 1.43201
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 1108.73, 63.2919 )
+scale = Vector2( 0.162489, 0.162489 )
+texture = ExtResource( 3 )
+
+[node name="x" type="Label" parent="."]
+margin_left = 1150.85
+margin_top = 42.1119
+margin_right = 1179.85
+margin_bottom = 81.1119
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.858824, 0.466667, 0.117647, 1 )
+text = "x"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Count" type="Label" parent="."]
+margin_left = 1193.32
+margin_top = 34.5631
+margin_right = 1255.32
+margin_bottom = 89.5631
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color_shadow = Color( 0.313726, 0.45098, 0.690196, 1 )
+custom_constants/shadow_offset_x = 5
+text = "Q"
+__meta__ = {
+"_edit_use_anchors_": false
+}
