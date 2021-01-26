@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://otherresource/oceansound.ogg" type="AudioStream" id=1]
 [ext_resource path="res://realistic_water_shader/art/rock/Rock.material" type="Material" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://otherresource/191,191,191.material" type="Material" id=13]
 [ext_resource path="res://peoples/people1.tscn" type="PackedScene" id=14]
 [ext_resource path="res://peoples/people2.tscn" type="PackedScene" id=15]
+[ext_resource path="res://assets/Endpoint/Endpoint.tscn" type="PackedScene" id=16]
 
 [sub_resource type="PlaneMesh" id=1]
 material = ExtResource( 4 )
@@ -315,6 +316,9 @@ autoplay = true
 [node name="FuelDisplay" parent="." instance=ExtResource( 7 )]
 
 [node name="People_collect" parent="." instance=ExtResource( 9 )]
+
+[node name="Endpoint" parent="." instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 136.276, 0, 0 )
 [connection signal="body_entered" from="people/people1" to="people/people1" method="_on_people1_body_entered"]
 [connection signal="peopleCollected" from="people/people1" to="People_collect" method="_on_people_peopleCollected"]
 [connection signal="body_entered" from="people/people2" to="people/people2" method="_on_people2_body_entered"]
