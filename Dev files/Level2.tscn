@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://otherresource/oceansound.ogg" type="AudioStream" id=1]
 [ext_resource path="res://realistic_water_shader/art/rock/Rock.material" type="Material" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://peoples/people1.tscn" type="PackedScene" id=14]
 [ext_resource path="res://peoples/people2.tscn" type="PackedScene" id=15]
 [ext_resource path="res://level/Level2.gd" type="Script" id=16]
+[ext_resource path="res://assets/Endpoint/Endpoint.tscn" type="PackedScene" id=17]
 
 [sub_resource type="PlaneMesh" id=1]
 material = ExtResource( 4 )
@@ -202,7 +203,7 @@ mesh = ExtResource( 5 )
 material/0 = ExtResource( 2 )
 
 [node name="Rock9" type="MeshInstance" parent="Rocks"]
-transform = Transform( -21.8585, 0, 78.1195, 4.71792, 20.134, 1.00627, -53.7963, 1.76575, -11.474, -5.74155, -2.97263, 9.53655 )
+transform = Transform( 95.994, -39.8827, 16.6655, 49.5246, 15.9332, 3.41737, 7.96086, 0.934297, -49.2057, -15.8331, -4.99563, 6.20722 )
 mesh = ExtResource( 5 )
 material/0 = ExtResource( 2 )
 
@@ -212,8 +213,7 @@ mesh = SubResource( 2 )
 material/0 = ExtResource( 11 )
 
 [node name="Boat" type="MeshInstance" parent="."]
-transform = Transform( -0.830027, 0.0209045, 0.557332, 0.0129782, 0.99975, -0.0181706, -0.557573, -0.00784885, -0.83009, 110, -3.321, -4.848 )
-visible = false
+transform = Transform( -0.830027, 0.0209045, 0.557332, 0.0129782, 0.99975, -0.0181706, -0.557573, -0.00784885, -0.83009, 20.94, -0.457822, 2.76043 )
 mesh = ExtResource( 12 )
 material/0 = ExtResource( 10 )
 
@@ -244,6 +244,7 @@ material = SubResource( 5 )
 transform = Transform( 1, 0, 0, 0, 0.347525, 0.937671, 0, -0.937671, 0.347525, 59.9525, 48.0113, 18.4543 )
 
 [node name="Camera" type="Camera" parent="CameraPivot"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 projection = 2
 fov = 116.1
 near = 0.54
@@ -259,10 +260,10 @@ material/0 = null
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 74.7961, 0.240927, -0.459145 )
 
 [node name="people1" parent="people" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.5227, 0, -3.49203 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.5227, 0, -16.6457 )
 
 [node name="people2" parent="people" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.6519, -1.74769, 13.1013 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6477, -1.74769, -0.506114 )
 
 [node name="Wind Zones" type="Spatial" parent="."]
 
@@ -317,9 +318,12 @@ autoplay = true
 [node name="FuelDisplay" parent="." instance=ExtResource( 7 )]
 
 [node name="People_collect" parent="." instance=ExtResource( 9 )]
+
+[node name="Endpoint" parent="." instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 136.994, 0, -0.00225639 )
 [connection signal="body_entered" from="people/people1" to="people/people1" method="_on_people1_body_entered"]
 [connection signal="peopleCollected" from="people/people1" to="People_collect" method="_on_people_peopleCollected"]
 [connection signal="body_entered" from="people/people2" to="people/people2" method="_on_people2_body_entered"]
 [connection signal="peopleCollected" from="people/people2" to="People_collect" method="_on_people_peopleCollected"]
-[connection signal="body_entered" from="Wind Zones/Downwind" to="." method="_on_Downwind_body_entered"]
-[connection signal="body_entered" from="Wind Zones/Upwind" to="." method="_on_Upwind_body_entered"]
+[connection signal="body_entered" from="Wind Zones/Downwind" to="Mouse_path" method="_on_Downwind_body_entered"]
+[connection signal="body_entered" from="Wind Zones/Upwind" to="Mouse_path" method="_on_Upwind_body_entered"]
